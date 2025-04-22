@@ -12,7 +12,7 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
 } from '@/components/ui/sidebar';
-import { LayoutDashboard, BookOpen, GitGraph, Key, BarChart3, FileText, Settings } from 'lucide-react';
+import { X, LayoutDashboard, GitGraph, Key, BarChart3, FileText, Settings } from 'lucide-react';
 
 const menuItems = [
   { title: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
@@ -29,13 +29,16 @@ export function AppSidebar() {
 
   return (
     <Sidebar>
-      <SidebarHeader className="p-4">
+      <SidebarHeader className="flex items-center justify-between p-4">
         <div className="flex items-center space-x-2">
           <div className="bg-blue-600 p-1 rounded">
-            <BookOpen className="w-5 h-5 text-white" />
+            <GitGraph className="w-5 h-5 text-white" />
           </div>
           <span className="text-lg font-semibold">FinConnect</span>
         </div>
+        <button className="lg:hidden p-2 hover:bg-gray-100 rounded-md">
+          <X className="w-5 h-5" />
+        </button>
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
