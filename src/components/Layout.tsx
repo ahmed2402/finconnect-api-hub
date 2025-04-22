@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { useAuth } from "@/contexts/AuthContext";
@@ -45,32 +44,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }
   }, [isDark]);
 
-  // Get initial of user's name for avatar
-  const getInitials = () => {
-    if (!user?.name) return "U";
-    return user.name.charAt(0).toUpperCase();
-  };
-
-  const isActive = (path: string) => {
-    return location.pathname === path || location.pathname.startsWith(`${path}/`);
-  };
-
-  // Animate appearance
-  useEffect(() => {
-    const el = document.getElementById("main-anim-container");
-    if (el) {
-      el.classList.remove("opacity-0");
-      el.classList.add("animate-fade-in");
-    }
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-tr from-background/80 to-secondary/25 transition-colors duration-500 dark:from-[#1A1F2C] dark:to-[#12131c]">
       <Navbar />
-      <main
-        id="main-anim-container"
-        className="flex-1 py-8 opacity-0 transition-all duration-700"
-      >
+      <main className="flex-1 py-8">
         {children}
       </main>
 
