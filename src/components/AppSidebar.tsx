@@ -12,29 +12,27 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
 } from '@/components/ui/sidebar';
-import { LayoutDashboard, FileText, Key, BarChart3, GitGraph, Settings } from 'lucide-react';
+import { LayoutDashboard, BookOpen, GitGraph, Key, BarChart3, FileText, Settings } from 'lucide-react';
 
 const menuItems = [
   { title: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
   { title: 'API Catalog', icon: GitGraph, path: '/api-catalog' },
+  { title: 'Transaction Simulator', icon: BarChart3, path: '/transaction-simulator' },
   { title: 'API Keys', icon: Key, path: '/api-keys' },
   { title: 'Analytics', icon: BarChart3, path: '/analytics' },
   { title: 'Documentation', icon: FileText, path: '/documentation' },
-  { title: 'Settings', icon: Settings, path: '/settings' },
 ];
 
 export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
-  
-  const isActive = (path: string) => location.pathname === path;
 
   return (
     <Sidebar>
       <SidebarHeader className="p-4">
         <div className="flex items-center space-x-2">
-          <div className="bg-primary p-1 rounded">
-            <GitGraph className="w-5 h-5 text-primary-foreground" />
+          <div className="bg-blue-600 p-1 rounded">
+            <BookOpen className="w-5 h-5 text-white" />
           </div>
           <span className="text-lg font-semibold">FinConnect</span>
         </div>
@@ -47,8 +45,9 @@ export function AppSidebar() {
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton
-                    isActive={isActive(item.path)}
+                    isActive={location.pathname === item.path}
                     onClick={() => navigate(item.path)}
+                    className="w-full"
                     tooltip={item.title}
                   >
                     <item.icon className="w-5 h-5" />

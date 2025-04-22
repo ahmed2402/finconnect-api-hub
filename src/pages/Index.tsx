@@ -13,7 +13,7 @@ const Index = () => {
       <div className="layout-container">
         {/* Hero Section */}
         <div className="py-12 md:py-20 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             The Developer-Friendly <span className="text-fintech-blue">Financial API</span> Hub
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
